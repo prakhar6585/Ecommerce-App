@@ -24,15 +24,15 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
-app.use(express.static('../client/build'));
+app.use(express.static(__dirname, '../client/build'));
 
 //Routes
 app.use('/api/v1/auth', authRoutes)
 app.use('/api/v1/category', catetgoryRoutes)
 app.use('/api/v1/product', productRoutes)
 
-app.use('*', function (req, res) {
-    res.sendFile('../client/build/index.html');
+app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
 })
 
 const PORT = process.env.PORT
