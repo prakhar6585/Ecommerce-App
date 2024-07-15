@@ -31,7 +31,7 @@ app.use('/api/v1/auth', authRoutes)
 app.use('/api/v1/category', catetgoryRoutes)
 app.use('/api/v1/product', productRoutes)
 
-app.get('*', function (req, res) {
+app.use('*', function (req, res) {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
 })
 
