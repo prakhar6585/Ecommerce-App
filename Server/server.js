@@ -35,6 +35,10 @@ app.use('*', function (req, res) {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
 })
 
+app.get('/', (req, res) => {
+    res.json('Hello');
+});
+
 const PORT = process.env.PORT
 app.listen(PORT, () => {
     console.log(`server running on ${PORT}`.bgGreen.white);
